@@ -4,21 +4,30 @@ const time = document.querySelector('.time'),
     name = document.querySelector('.name'),
     focus = document.querySelector('.focus'),
     date = document.querySelector('.date');
-const blockquote = document.querySelector('blockquote');
-const figcaption = document.querySelector('figcaption');
-const btn = document.querySelector('.btn');
-const body = document.querySelector('body');
-const nextBtn = document.querySelector('.nextBtn');
-const weatherIcon = document.querySelector('.weather-icon');
-const temperature = document.querySelector('.temperature');
-const humidity = document.querySelector('.humidity');
-const windspeed = document.querySelector('.wind-speed');
-const city = document.querySelector('.city');
+ const blockquote = document.querySelector('blockquote');
+ const figcaption = document.querySelector('figcaption');
+ const btn = document.querySelector('.btn');
+ const body = document.querySelector('body');
+ const nextBtn = document.querySelector('.nextBtn');
+ const weatherIcon = document.querySelector('.weather-icon');
+ const temperature = document.querySelector('.temperature');
+ const humidity = document.querySelector('.humidity');
+ const windspeed = document.querySelector('.wind-speed');
+ const city = document.querySelector('.city');
 
 
 let nextImgIndex = 0;
 
 
+var imageIndex = 0;
+let today = new Date();
+
+var images = new Array(24);
+setImages("night", 0, 6);
+setImages("morning", 6, 12);
+setImages("day", 12, 18);
+setImages("evening", 18, 24);
+    
 function viewBgImage(src) {
     const img = new Image();
     img.src = src;
@@ -37,19 +46,6 @@ function getImage() {
 }
 
 
-
-
-
-var imageIndex = 0;
-let today = new Date();
-
-var images = new Array(24);
-setImages("night", 0, 6);
-setImages("morning", 6, 12);
-setImages("day", 12, 18);
-setImages("evening", 18, 24);
-for (var i = 0; i < 24; i++)
-    console.log(images[i] + " ");
 
 
 function setImages(timeOfDay, startIdx, endIdx) {
